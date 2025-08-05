@@ -1,53 +1,47 @@
-# Reggaeton Be Gone
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
-![RBG](https://github.com/user-attachments/assets/82ae1932-0db3-41b7-aafb-94ccb48f4141)
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-Detects reggaeton musical genre with Machine Learning and sends packets to disable BT speakers (hopefully)
+## About Laravel
 
-# Parts 
-Raspberry Pi 3 https://www.dfrobot.com/product-1703.html?tracking=hOuIhw4fDaJRTdy4abz04npbQC78dqxBkqVt7XMFYxEXj2s0ukWgm71wbut0ewUP
+> **Note:** This repository contains the core code of the Laravel framework. If you want to build an application using Laravel, visit the main [Laravel repository](https://github.com/laravel/laravel).
 
-DFRobot Oled 128x32 screen https://www.dfrobot.com/product-2018.html?tracking=hOuIhw4fDaJRTdy4abz04npbQC78dqxBkqVt7XMFYxEXj2s0ukWgm71wbut0ewUP
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as:
 
-Push button https://www.dfrobot.com/product-1098.html?tracking=hOuIhw4fDaJRTdy4abz04npbQC78dqxBkqVt7XMFYxEXj2s0ukWgm71wbut0ewUP
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-BT Audio Receiver 5.0 (to test with your own BT) https://www.dfrobot.com/product-2085.html?tracking=hOuIhw4fDaJRTdy4abz04npbQC78dqxBkqVt7XMFYxEXj2s0ukWgm71wbut0ewUP 
+Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb combination of simplicity, elegance, and innovation gives you a complete toolset required to build any application with which you are tasked.
 
-Jumper cables
+## Learning Laravel
 
-# Machine Learning
-Model trained using Edge Impulse platform https://edgeimpulse.com/ (free account for developers)
-I will soon post the eim file or make public my project for cloning
+Laravel has the most extensive and thorough documentation and video tutorial library of any modern web application framework. The [Laravel documentation](https://laravel.com/docs) is in-depth and complete, making it a breeze to get started learning the framework.
 
-# Complete Instructions
-English https://www.hackster.io/roni-bandini/reggaeton-be-gone-e5b6e2
-Spanish workshop https://www.youtube.com/watch?v=sPcHeiP9Xgg
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-# Connections
-Oled SDA ->  Rpi GPIO 2
-Oled SCL -> Rpi GPIO 3
-Oled VCC -> Rpi VCC
-Oled GND -> Rpi GND
+If you're not in the mood to read, [Laracasts](https://laracasts.com) contains thousands of video tutorials covering a range of topics including Laravel, modern PHP, unit testing, JavaScript, and more. Boost the skill level of yourself and your entire team by digging into our comprehensive video library.
 
-Button pin 1 -> GPIO26
-Button pin 2 -> GND
+## Contributing
 
-Power supply: 5V 3A
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-# 2.0 Experimental version
-This version was made for the Nerdearla Chile workshop. It includes several enhancements  
+## Code of Conduct
 
-# 3.0 Experimental version
-This version was made for Ekoparty workshop and it was given for free to the participants. It includes on device scan, strike to avoid false positives, better ML model and more. You can get this version (software, 3d enclosure and ML model) at https://www.patreon.com/RoniBandini/shop/reggaeton-be-gone-version-experimental-3-860409 
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-# Pocket Gone
+## Security Vulnerabilities
 
-Reggaeton Be Gone is not an easy device to make. Besides, most people just need a simple way to disable loud Bluetooth speakers. I have another device called Pocket Gone—cheaper, portable, and easy to make. You can sign up for the asynchronous workshop and build your own. https://www.patreon.com/RoniBandini/shop/taller-virtual-de-pocket-gone-945256 
+Please review [our security policy](https://github.com/laravel/framework/security/policy) on how to report security vulnerabilities.
 
-# Contact
-Customizations, prototyping, maker or AI talks? 
+## License
 
-Roni Bandini
-https://www.instagram.com/ronibandini/
-https://x.com/RoniBandini
-https://www.linkedin.com/in/ronibandini/
+The Laravel framework is open-sourced software licensed under the [MIT license](LICENSE.md).

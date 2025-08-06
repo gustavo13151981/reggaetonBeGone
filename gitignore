@@ -1,3 +1,12 @@
-# Ignore any local secrets or env files
-.env
-*.env
+.sass-cache
+.DS_Store
+*.zip
+vendor
+s3.yml
+test/.sass-cache
+
+coverage
+.bundle
+.rake_tasks
+tmp*
+.idea/*

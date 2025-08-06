@@ -1,68 +1,71 @@
-Super Hammer
-============
+# Hammer.rb
 
-A curated fork of the [Rock Hammer][r] responsive web library with added superpowers. 
+Hammer.rb is the hammer compilation gem. Check out the "Latest" branch for the latest development version of the the compiler.
 
+Release versions are captured in branches named after the release e.g. "5.2"
 
-## Superpowers?
-Yeah, added features which original Rock Hammer doesn't have. There are:
+# How it works
 
+      @build = Hammer::Build.new(
+        :input_directory => @input_directory,
+        :output_directory => Dir.mktmpdir(),
+        :cache_directory => Dir.mktmpdir()
+      )
+      @build.compile()
 
-### Grid system
-By design Rock Hammer doesn't include a grid system. Lately I'm using [Unsemantic][u] CSS framework a lot, so I added it to the mix. 
+![Build status](https://travis-ci.org/RiotHQ/hammer-gem.svg?branch=v2)
 
-The variables `bpmobilemax` and `$bptabletmax` in `_config.scss` partial define the device breakpoints which activate the Unsemantic mobile, tablet and desktop grids. You can keep the default pixel values or use the predefined logical breakpoints `bp2`...`bp6`. 
+# To use it:
 
-The `$show-breakpoint` SASS variable lets you display current device and logical breakpoints (default is false).
+      $ git clone git@github.com:RiotHQ/hammer-gem.git
+      $ cd hammer-gem
+      # install all the Gems that the compiler uses
+      $ bundle install
+      # vendor these gems and symlink for Ruby 2.0.0 and Ruby 1.8.7 compatibility
+      $ rake bundle
+      # Copy the ready-to-go gem into Hammer's Application Support directory so the Mac app uses it
+      $ bundle exec rake use
 
-### Vector icons
-[Font Awesome][fa] is an icon collection distributed as web font. It's very handy to use and I've found myself to use it more and more in my recent projects.
+# Auto-update script for this branch
 
-
-## A note on directory names
-Ruby on Rails and other popular web frameworks prefer to name directories holding static assets as `stylesheets`, `images` and `javascripts` so I've changed those accordingly.
-
-
-## Other changes
-
-* I don't use [Hammer for Mac][h] yet — someone could argue that I should — so I cut all the HTML partials from Super Hammer. 
-* I've made some changes to button and alert classes to align them to Boostrap 2. Super Hammer has a generic alert style (yellow) plus `alert--error`/`alert--danger` (red), `alert--info` (blue) and `alert--success` (green). Buttons have a generic style plus `btn-primary` (blue), `btn-success` (green), `btn-error`/`btn-danger` (red) and `btn-inverse` (black).
-* Form fields have validation states: apply a `has-success`, `has-warning` and `has-error` class to the field parent container.
-
-
-## Working with SASS files
-
-First, download SASS 3.3 at [sass-lang.com/install](http://sass-lang.com/install).
-
-Update both stylesheets `all.css` and `lte-ie8.css` with your latest changes:
-  
-    make
-
-Update just `all.css` with your latest changes:
-  
-    make update
-  
-Tell SASS processor to rebuild all.css automagically when a SCSS file changes:
-  
-    make watch
-  
-Remove the `.sass-cache` directory:
-
-    make clean
-
-While building a site you may want to only recompile/watch `all.css`, which is the main CSS file targeted to modern browsers. Occasionally when you need to deploy or test CSS against IE 8 and previous versions you run `make` (or `make all`) to rebuild all.
+      ruby -e "$(curl -fsSL https://raw.githubusercontent.com/RiotHQ/hammer-gem/latest/scripts/update.rb)"
 
 
-## License
+# If bundle install failed (could not find ruby/config.h)
 
-Multiple licenses are available. I'll do my best to summarize them here:
+```
+      cd /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.9.sdk/System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/include/ruby-2.0.0/ruby
+      sudo ln -s ../universal-darwin13/ruby/config.h ./config.h
+```
+http://stackoverflow.com/questions/26434642/yosemite-upgrade-broke-ruby-h
 
-* **Rock Hammer** is licensed under the Apache License 2.0
-* **Unsemantic** is dual-licensed both under MIT and GPL
-* **Font Awesome** code and assents are licensed under [these terms](http://fortawesome.github.io/Font-Awesome/license/)
+# Advanced configuration
+Since version 5.2.2 you can use autoprefixer option. [Read more about Autoprefixer](https://github.com/postcss/autoprefixer). In order to enable auto-prefixer for your styles you have to create a configuration file `hammer.json` in root of your project. This file must have next format:
+```js
+{
+  "sourcemaps": true,
+  "autoprefixer":
+  {
+    "browsers": ["last 2 versions", "ie 9"]
+  }
+  "contentful":
+  {
+    "apiKey": "123456789",
+    "spaces": 
+    {
+      "default":
+      {
+        "id": "987654321"
+      }
+    }
+  }
+}
+```
+There are only 2 options for now. 
 
+1. Sourcemaps - You can enable/disable sourcemaps generation with simple `true` or `false` 
+2. Autoprefixer - If you want to disable autoprefixer, you should write: `"autoprefixer": false`
+You can pass 4 different options to autoprefixer, see the [autoprefixer docs](https://github.com/postcss/autoprefixer#options) for information
 
-[r]: http://malarkey.github.io/Rock-Hammer/
-[u]: http://unsemantic.com/
-[fa]: http://fortawesome.github.io/Font-Awesome/
-[h]: http://hammerformac.com/
+### Troubleshooting
+`hammer.json` is a JSON file. If you see that your configuration is having no effect, please check the format of your JSON file [here](http://jsonlint.com/).

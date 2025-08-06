@@ -1,0 +1,9 @@
+theme: minima
+title: bhe Blog
+SEOTitle: bhe的博客 | bhe Blog
+email: bighammerext@outlook.com
+description: "Every failure is leading towards success."
+keyword: "money"
+url: "http://bighammerExt.github.io"  
+baseurl: ""     
+github_repo: "https://github.com/bighammerExt/bighammerExt.github.io.git"
